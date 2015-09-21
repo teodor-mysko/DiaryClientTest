@@ -11,13 +11,13 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 
 	private Class<T> entity;
 
-	EntityManager entityManager;
 
 	public BaseDAOImpl(Class<T> entity) {
 		this.entity = entity;
 	}
 
 	public void create(T object) {
+		EntityManager entityManager=null;
 
 		try {
 			entityManager = JPAUtil.getFactory().createEntityManager();
@@ -27,6 +27,7 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
+				JPAUtil.close();
 
 			}
 		}
@@ -34,17 +35,20 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 	}
 
 	public T findByNickName(String nickName) {
+		EntityManager entityManager=null;
 
 		T element=null;
 		Class<T> persistentClass = (Class<T>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+		System.out.println("from "+persistentClass.getSimpleName()+ " where nick_name= '"+nickName+"'");
 		try {
 			entityManager = JPAUtil.getFactory().createEntityManager();
 			entityManager.getTransaction().begin();
-			element=(T) entityManager.createQuery("from "+persistentClass.getSimpleName()+ " where nick_name="+nickName).getSingleResult();
+			element=(T) entityManager.createQuery("from "+persistentClass.getSimpleName()+ " where nick_name= '"+nickName + "'").getSingleResult();
 			entityManager.getTransaction().commit();
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
+				JPAUtil.close();
 
 			}
 		}
@@ -53,6 +57,7 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 	}
 
 	public void update(T object) {
+		EntityManager entityManager=null;
 
 		try {
 			entityManager = JPAUtil.getFactory().createEntityManager();
@@ -62,28 +67,36 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
+				JPAUtil.close();
 			}
 		}
 
 	}
 
-	public void delete(T object) {
+	public void delete(String nickName) {
+		EntityManager entityManager=null;
 
 		try {
+			Class<T> persistentClass = (Class<T>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+
 			entityManager = JPAUtil.getFactory().createEntityManager();
 			entityManager.getTransaction().begin();
-			entityManager.remove(entityManager.merge(object));
+			entityManager.createQuery("delete from "+persistentClass.getSimpleName()+ " where nick_name= '"+nickName + "'").executeUpdate();
 			entityManager.getTransaction().commit();
-		} finally {
+			System.out.println("delete from "+persistentClass.getSimpleName()+ " where nick_name= '"+nickName + "'");
+		}
+		finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-
+				JPAUtil.close();
 			}
 		}
 
 	}
 
 	public List<T> getAll() {
+		EntityManager entityManager=null;
+
 		List<T> list=null;
 		Class<T> persistentClass = (Class<T>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 		try {
@@ -94,7 +107,7 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-
+				JPAUtil.close();
 			}
 		}
 		return list;

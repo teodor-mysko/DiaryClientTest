@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="login_duration")
+//@Table(name="login_duration")
 public class LoginDuration {
 	
 	@Id

@@ -1,6 +1,5 @@
 package com.softserve.tc.diaryclient.entity;
 
-import java.security.Timestamp;
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,11 +12,15 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="session")
+//@Table(name="session")
 public class UserSession {
 	
 	@Id
     private String uuid;
+	
+	@NotNull
+	@Column(name="nick_name")
+	private String nickName;
 
 	@NotNull
 	@Column(name="session_number")
@@ -26,22 +29,22 @@ public class UserSession {
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="start_session")
-	private Timestamp startSession;
+	private Date startSession;
 	
 	@Column(name="end_session")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Timestamp endSession;
+	private Date endSession;
 	
 	public UserSession() {
 		super();
 	}
 	
-	public UserSession(String sessionNumber, Timestamp startSession, Timestamp endSession) {
+	public UserSession(String nickName, String sessionNumber, Date startSession) {
 		super();
 		this.uuid = UUID.randomUUID().toString();
+		this.nickName = nickName;
 		this.sessionNumber = sessionNumber;
 		this.startSession = startSession;
-		this.endSession = endSession;
 	}
 
 	public String getUuid() {
@@ -52,6 +55,14 @@ public class UserSession {
 		this.uuid = uuid;
 	}
 
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
 	public String getSessionNumber() {
 		return sessionNumber;
 	}
@@ -60,29 +71,26 @@ public class UserSession {
 		this.sessionNumber = sessionNumber;
 	}
 
-	public Timestamp getStartSession() {
+	public Date getStartSession() {
 		return startSession;
 	}
 
-	public void setStartSession(Timestamp startSession) {
+	public void setStartSession(Date startSession) {
 		this.startSession = startSession;
 	}
 
-	public Timestamp getEndSession() {
+	public Date getEndSession() {
 		return endSession;
 	}
 
-	public void setEndSession(Timestamp endSession) {
+	public void setEndSession(Date endSession) {
 		this.endSession = endSession;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "Session [uuid=" + uuid + ", sessionNumber=" + sessionNumber + ", startSession=" + startSession
-				+ ", endSession=" + endSession + "]";
+		return "UserSession [uuid=" + uuid + ", nickName=" + nickName + ", sessionNumber=" + sessionNumber
+				+ ", startSession=" + startSession + ", endSession=" + endSession + "]\n";
 	}
 
 }

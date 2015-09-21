@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="user_statistic")
+//@Table(name="user_statistic")
 public class UserStatistic {
 
 	@Id

@@ -10,7 +10,7 @@ public interface BaseDAO<T> {
 
 	void update(T object);
 
-	void delete(T object);
+	void delete(String nickName);
 
 	List<T> getAll();
 }
