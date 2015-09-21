@@ -31,6 +31,21 @@ public class UserStatistic {
 	@Column(name="last_login")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Integer lastLogin;
+	
+	public UserStatistic() {
+		super();
+	}
+	
+	public UserStatistic(String uuid, String nickName, Integer numberOfRecords, Integer numberOfLogins,
+			String lastRecords, Integer lastLogin) {
+		super();
+		this.uuid = uuid;
+		this.nickName = nickName;
+		this.numberOfRecords = numberOfRecords;
+		this.numberOfLogins = numberOfLogins;
+		this.lastRecords = lastRecords;
+		this.lastLogin = lastLogin;
+	}
 
 	public String getUuid() {
 		return uuid;

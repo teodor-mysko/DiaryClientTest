@@ -29,6 +29,18 @@ public class Session {
 	@Column(name="end_session")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endSession;
+	
+	public Session() {
+		super();
+	}
+	
+	public Session(String uuid, String sessionNumber, Date startSession, Date endSession) {
+		super();
+		this.uuid = uuid;
+		this.sessionNumber = sessionNumber;
+		this.startSession = startSession;
+		this.endSession = endSession;
+	}
 
 	public String getUuid() {
 		return uuid;
@@ -60,6 +72,15 @@ public class Session {
 
 	public void setEndSession(Date endSession) {
 		this.endSession = endSession;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Session [uuid=" + uuid + ", sessionNumber=" + sessionNumber + ", startSession=" + startSession
+				+ ", endSession=" + endSession + "]";
 	}
 
 }

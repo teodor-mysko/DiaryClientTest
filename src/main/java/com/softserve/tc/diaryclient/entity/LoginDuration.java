@@ -28,6 +28,18 @@ public class LoginDuration {
 	@Column(name="duration")
 	private Double duration;
 	
+	public LoginDuration() {
+		super();
+	}
+	
+	public LoginDuration(String uuid, String nickName, Date loginDate, Double duration) {
+		super();
+		this.uuid = uuid;
+		this.nickName = nickName;
+		this.loginDate = loginDate;
+		this.duration = duration;
+	}
+
 	public String getUuid() {
 		return uuid;
 	}
@@ -60,6 +72,13 @@ public class LoginDuration {
 		this.loginDate = loginDate;
 	}
 
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "LoginDuration [uuid=" + uuid + ", nickName=" + nickName + ", loginDate=" + loginDate + ", duration="
+				+ duration + "]";
+	}
 
 }

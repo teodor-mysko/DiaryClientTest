@@ -34,6 +34,23 @@ public class Settings {
 	
 	@Column(name="time_format")
 	private TimeFormat timeFormat;
+	
+	public Settings() {
+		super();
+	}
+	
+	public Settings(String uuid, String nickName, Theme theme, Integer numberOfRecordsToShow, YesNo showFullName,
+			YesNo showDateOfBirth, Language language, TimeFormat timeFormat) {
+		super();
+		this.uuid = uuid;
+		this.nickName = nickName;
+		this.theme = theme;
+		this.numberOfRecordsToShow = numberOfRecordsToShow;
+		this.showFullName = showFullName;
+		this.showDateOfBirth = showDateOfBirth;
+		this.language = language;
+		this.timeFormat = timeFormat;
+	}
 
 	public String getUuid() {
 		return uuid;
@@ -99,6 +116,14 @@ public class Settings {
 		this.timeFormat = timeFormat;
 	}
 
-	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Settings [uuid=" + uuid + ", nickName=" + nickName + ", theme=" + theme + ", numberOfRecordsToShow="
+				+ numberOfRecordsToShow + ", showFullName=" + showFullName + ", showDateOfBirth=" + showDateOfBirth
+				+ ", language=" + language + ", timeFormat=" + timeFormat + "]";
+	}
 
 }
