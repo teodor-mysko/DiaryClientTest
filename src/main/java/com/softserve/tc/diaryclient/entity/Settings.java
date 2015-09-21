@@ -2,6 +2,8 @@ package com.softserve.tc.diaryclient.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -17,18 +19,22 @@ public class Settings {
 	@Column(name="nick_name")
 	private String nickName;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="theme")
 	private Theme theme;
 	
 	@Column(name="number_of_records_to_show")
 	private Integer numberOfRecordsToShow;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="show_full_name")
 	private YesNo showFullName;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="show_date_of_birth")
 	private YesNo showDateOfBirth;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="language")
 	private Language language;
 	
