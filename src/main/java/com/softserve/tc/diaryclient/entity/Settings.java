@@ -1,5 +1,7 @@
 package com.softserve.tc.diaryclient.entity;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -45,10 +47,10 @@ public class Settings {
 		super();
 	}
 	
-	public Settings(String uuid, String nickName, Theme theme, Integer numberOfRecordsToShow, YesNo showFullName,
+	public Settings(String nickName, Theme theme, Integer numberOfRecordsToShow, YesNo showFullName,
 			YesNo showDateOfBirth, Language language, TimeFormat timeFormat) {
 		super();
-		this.uuid = uuid;
+		this.uuid = UUID.randomUUID().toString();
 		this.nickName = nickName;
 		this.theme = theme;
 		this.numberOfRecordsToShow = numberOfRecordsToShow;

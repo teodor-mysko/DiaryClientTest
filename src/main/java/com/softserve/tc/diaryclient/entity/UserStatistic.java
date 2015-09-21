@@ -1,6 +1,7 @@
 package com.softserve.tc.diaryclient.entity;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="user_straristic")
+@Table(name="user_statistic")
 public class UserStatistic {
 
 	@Id
@@ -38,10 +39,10 @@ public class UserStatistic {
 		super();
 	}
 	
-	public UserStatistic(String uuid, String nickName, Integer numberOfRecords, Integer numberOfLogins,
+	public UserStatistic(String nickName, Integer numberOfRecords, Integer numberOfLogins,
 			String lastRecords, Date lastLogin) {
 		super();
-		this.uuid = uuid;
+		this.uuid = UUID.randomUUID().toString();
 		this.nickName = nickName;
 		this.numberOfRecords = numberOfRecords;
 		this.numberOfLogins = numberOfLogins;

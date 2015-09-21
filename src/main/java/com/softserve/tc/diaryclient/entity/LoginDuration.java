@@ -1,6 +1,7 @@
 package com.softserve.tc.diaryclient.entity;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,9 +33,9 @@ public class LoginDuration {
 		super();
 	}
 	
-	public LoginDuration(String uuid, String nickName, Date loginDate, Double duration) {
+	public LoginDuration(String nickName, Date loginDate, Double duration) {
 		super();
-		this.uuid = uuid;
+		this.uuid = UUID.randomUUID().toString();
 		this.nickName = nickName;
 		this.loginDate = loginDate;
 		this.duration = duration;

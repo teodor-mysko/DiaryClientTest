@@ -1,6 +1,8 @@
 package com.softserve.tc.diaryclient.entity;
 
+import java.security.Timestamp;
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +14,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="session")
-public class Session {
+public class UserSession {
 	
 	@Id
     private String uuid;
@@ -24,19 +26,19 @@ public class Session {
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="start_session")
-	private Date startSession;
+	private Timestamp startSession;
 	
 	@Column(name="end_session")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date endSession;
+	private Timestamp endSession;
 	
-	public Session() {
+	public UserSession() {
 		super();
 	}
 	
-	public Session(String uuid, String sessionNumber, Date startSession, Date endSession) {
+	public UserSession(String sessionNumber, Timestamp startSession, Timestamp endSession) {
 		super();
-		this.uuid = uuid;
+		this.uuid = UUID.randomUUID().toString();
 		this.sessionNumber = sessionNumber;
 		this.startSession = startSession;
 		this.endSession = endSession;
@@ -58,19 +60,19 @@ public class Session {
 		this.sessionNumber = sessionNumber;
 	}
 
-	public Date getStartSession() {
+	public Timestamp getStartSession() {
 		return startSession;
 	}
 
-	public void setStartSession(Date startSession) {
+	public void setStartSession(Timestamp startSession) {
 		this.startSession = startSession;
 	}
 
-	public Date getEndSession() {
+	public Timestamp getEndSession() {
 		return endSession;
 	}
 
-	public void setEndSession(Date endSession) {
+	public void setEndSession(Timestamp endSession) {
 		this.endSession = endSession;
 	}
 
