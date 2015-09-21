@@ -1,5 +1,8 @@
 package com.softserve.tc.diaryclient.entity;
 
+import java.util.Date;
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +12,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="user_straristic")
+//@Table(name="user_statistic")
 public class UserStatistic {
 
 	@Id
@@ -30,7 +33,22 @@ public class UserStatistic {
 	
 	@Column(name="last_login")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Integer lastLogin;
+	private Date lastLogin;
+	
+	public UserStatistic() {
+		super();
+	}
+	
+	public UserStatistic(String nickName, Integer numberOfRecords, Integer numberOfLogins,
+			String lastRecords, Date lastLogin) {
+		super();
+		this.uuid = UUID.randomUUID().toString();
+		this.nickName = nickName;
+		this.numberOfRecords = numberOfRecords;
+		this.numberOfLogins = numberOfLogins;
+		this.lastRecords = lastRecords;
+		this.lastLogin = lastLogin;
+	}
 
 	public String getUuid() {
 		return uuid;
@@ -72,11 +90,11 @@ public class UserStatistic {
 		this.lastRecords = lastRecords;
 	}
 
-	public Integer getLastLogin() {
+	public Date getLastLogin() {
 		return lastLogin;
 	}
 
-	public void setLastLogin(Integer lastLogin) {
+	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
 	}
 	

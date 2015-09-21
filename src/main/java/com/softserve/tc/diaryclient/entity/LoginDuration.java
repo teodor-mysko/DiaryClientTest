@@ -1,6 +1,7 @@
 package com.softserve.tc.diaryclient.entity;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="login_duration")
+//@Table(name="login_duration")
 public class LoginDuration {
 	
 	@Id
@@ -28,6 +29,18 @@ public class LoginDuration {
 	@Column(name="duration")
 	private Double duration;
 	
+	public LoginDuration() {
+		super();
+	}
+	
+	public LoginDuration(String nickName, Date loginDate, Double duration) {
+		super();
+		this.uuid = UUID.randomUUID().toString();
+		this.nickName = nickName;
+		this.loginDate = loginDate;
+		this.duration = duration;
+	}
+
 	public String getUuid() {
 		return uuid;
 	}
@@ -60,6 +73,13 @@ public class LoginDuration {
 		this.loginDate = loginDate;
 	}
 
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "LoginDuration [uuid=" + uuid + ", nickName=" + nickName + ", loginDate=" + loginDate + ", duration="
+				+ duration + "]";
+	}
 
 }

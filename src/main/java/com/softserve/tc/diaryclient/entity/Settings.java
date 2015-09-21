@@ -1,13 +1,17 @@
 package com.softserve.tc.diaryclient.entity;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="settings")
+//@Table(name="settings")
 public class Settings {
 	
 	@Id
@@ -17,23 +21,44 @@ public class Settings {
 	@Column(name="nick_name")
 	private String nickName;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="theme")
 	private Theme theme;
 	
 	@Column(name="number_of_records_to_show")
 	private Integer numberOfRecordsToShow;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="show_full_name")
 	private YesNo showFullName;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="show_date_of_birth")
 	private YesNo showDateOfBirth;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="language")
 	private Language language;
 	
 	@Column(name="time_format")
 	private TimeFormat timeFormat;
+	
+	public Settings() {
+		super();
+	}
+	
+	public Settings(String nickName, Theme theme, Integer numberOfRecordsToShow, YesNo showFullName,
+			YesNo showDateOfBirth, Language language, TimeFormat timeFormat) {
+		super();
+		this.uuid = UUID.randomUUID().toString();
+		this.nickName = nickName;
+		this.theme = theme;
+		this.numberOfRecordsToShow = numberOfRecordsToShow;
+		this.showFullName = showFullName;
+		this.showDateOfBirth = showDateOfBirth;
+		this.language = language;
+		this.timeFormat = timeFormat;
+	}
 
 	public String getUuid() {
 		return uuid;
@@ -99,6 +124,14 @@ public class Settings {
 		this.timeFormat = timeFormat;
 	}
 
-	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Settings [uuid=" + uuid + ", nickName=" + nickName + ", theme=" + theme + ", numberOfRecordsToShow="
+				+ numberOfRecordsToShow + ", showFullName=" + showFullName + ", showDateOfBirth=" + showDateOfBirth
+				+ ", language=" + language + ", timeFormat=" + timeFormat + "]";
+	}
 
 }
