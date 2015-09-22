@@ -13,13 +13,14 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 //@Table(name="user_statistic")
+
 public class UserStatistic {
 
 	@Id
 	private String uuid; 
 
 	@NotNull
-	@Column(name="nick_name")
+	@Column(name="nick_name", unique = true)
 	private String nickName;
 	
 	@Column(name="number_of_records")
@@ -96,6 +97,13 @@ public class UserStatistic {
 
 	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
+	}
+
+	@Override
+	public String toString() {
+		return "UserStatistic [uuid=" + uuid + ", nickName=" + nickName + ", numberOfRecords=" + numberOfRecords
+				+ ", numberOfLogins=" + numberOfLogins + ", lastRecords=" + lastRecords + ", lastLogin=" + lastLogin
+				+ "]\n";
 	}
 	
 }

@@ -18,7 +18,7 @@ public class Settings {
 	private String uuid; 
 	
 	@NotNull
-	@Column(name="nick_name")
+	@Column(name="nick_name", unique = true)
 	private String nickName;
 	
 	@Enumerated(EnumType.STRING)
@@ -40,6 +40,7 @@ public class Settings {
 	@Column(name="language")
 	private Language language;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="time_format")
 	private TimeFormat timeFormat;
 	
@@ -131,7 +132,7 @@ public class Settings {
 	public String toString() {
 		return "Settings [uuid=" + uuid + ", nickName=" + nickName + ", theme=" + theme + ", numberOfRecordsToShow="
 				+ numberOfRecordsToShow + ", showFullName=" + showFullName + ", showDateOfBirth=" + showDateOfBirth
-				+ ", language=" + language + ", timeFormat=" + timeFormat + "]";
+				+ ", language=" + language + ", timeFormat=" + timeFormat + "]\n";
 	}
 
 }

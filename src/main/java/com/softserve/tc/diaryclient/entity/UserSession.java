@@ -23,7 +23,7 @@ public class UserSession {
 	private String nickName;
 
 	@NotNull
-	@Column(name="session_number")
+	@Column(name="session_number", unique = true)
 	private String sessionNumber;
 	
 	@NotNull
