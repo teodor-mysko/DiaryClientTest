@@ -25,7 +25,6 @@ public class UserSessionDAOImpl extends BaseDAOImpl<UserSession> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-				// JPAUtil.close();
 			}
 		}
 	}

@@ -24,6 +24,7 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		EntityManager entityManager=null;
 
 		try {
+			System.out.println(object.toString());
 			entityManager = JPAUtil.getFactory().createEntityManager();
 			entityManager.getTransaction().begin();
 			entityManager.persist(object);
@@ -31,8 +32,6 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-				//JPAUtil.close();
-
 			}
 		}
 
@@ -51,8 +50,6 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-				//JPAUtil.close();
-
 			}
 		}
 
@@ -92,7 +89,6 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-				//JPAUtil.close();
 			}
 		}
 
@@ -112,7 +108,6 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-				//JPAUtil.close();
 			}
 		}
 
@@ -131,7 +126,6 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-				//JPAUtil.close();
 			}
 		}
 		return list;
