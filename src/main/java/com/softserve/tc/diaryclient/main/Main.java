@@ -29,11 +29,12 @@ public class Main {
 	UserSessionDAOImpl userSessionDAOimpl = new UserSessionDAOImpl();
 
 		//CREATE
-		UserSession userSession = new UserSession("Vova", "njtyrfjhyr",  Date.from(ZonedDateTime.now().toInstant()));
+//		UserSession userSession = new UserSession("Vova", "njtyrfjhyr",  Date.from(ZonedDateTime.now().toInstant()));
 //		System.out.println(userSession.getUuid());
-	//	userSessionDAOimpl.create(userSession);
+//		userSessionDAOimpl.create(userSession);
 //		System.out.println(userSession.getUuid());
-
+	UserSession userSession = new UserSession("Thomas", "gngnet11111111",  Date.from(ZonedDateTime.now().toInstant()));
+		userSessionDAOimpl.create(userSession);
 		//FIND
 //		UserSession us=userSessionDAOimpl.findByNickName("Ira");
 	//	System.out.println(us);
@@ -43,7 +44,7 @@ public class Main {
 		//userSessionDAOimpl.update(userSession);
 		
 		//DELETE
-		userSessionDAOimpl.delete("Ira");
+//		userSessionDAOimpl.delete("Ira");
 		//GETALL
 		//System.out.println(userSessionDAOimpl.getAll());
 
