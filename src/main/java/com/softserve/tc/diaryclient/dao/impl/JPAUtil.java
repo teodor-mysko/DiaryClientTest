@@ -8,6 +8,9 @@ public class JPAUtil {
 	private static final String PERSISTENCE_UNIT_NAME = "DiaryClientPersistence";
 
 	private static EntityManagerFactory factory = null;
+	
+	private JPAUtil() {
+	}
 
 	public static EntityManagerFactory getFactory() {
 
