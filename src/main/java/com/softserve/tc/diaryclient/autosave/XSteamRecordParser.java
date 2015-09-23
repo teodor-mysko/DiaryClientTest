@@ -5,10 +5,10 @@ import org.apache.log4j.Logger;
 import com.softserve.tc.diaryclient.entity.Record;
 import com.softserve.tc.diaryclient.log.Log;
 
-public class XsteamRecordParser implements XMLParser {
+public class XSteamRecordParser implements XMLParser {
     
     private static Logger LOG =
-            Log.init(XsteamRecordParser.class.toString());
+            Log.init(XSteamRecordParser.class.toString());
             
     public String marshalText(Record record) {
         
