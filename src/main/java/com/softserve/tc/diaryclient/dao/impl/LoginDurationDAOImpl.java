@@ -10,4 +10,5 @@ public class LoginDurationDAOImpl extends BaseDAOImpl<LoginDuration> implements 
 	public LoginDurationDAOImpl() {
 		super(LoginDuration.class);
 	}
+
 }

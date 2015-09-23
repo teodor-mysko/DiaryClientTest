@@ -4,7 +4,7 @@
 	<groupId>com.softserve.diaryclient</groupId>
 	<artifactId>DiaryClient</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1</version>
 	<name>DiaryClient Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
@@ -18,6 +18,11 @@
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.1-901.jdbc4</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.ws</groupId>
+			<artifactId>jaxws-api</artifactId>
+			<version>2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.el</groupId>
@@ -64,7 +69,6 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -106,19 +110,17 @@
 			<artifactId>spring-aspects</artifactId>
 			<version>4.0.3.RELEASE</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>4.0.3.RELEASE</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>4.0.3.RELEASE</version>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
@@ -128,17 +130,20 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>3.2.8.RELEASE</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>3.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.softserve.tc</groupId>
+			<artifactId>Diary</artifactId>
+			<version>1</version>
 		</dependency>
 	</dependencies>
 	<repositories>

@@ -1,4 +1,4 @@
-package com.softserve.tc.log;
+package com.softserve.tc.diaryclient.log;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
