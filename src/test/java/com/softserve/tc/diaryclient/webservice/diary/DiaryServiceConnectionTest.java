@@ -15,7 +15,7 @@ public class DiaryServiceConnectionTest {
 		 assertEquals(expected, actual);
 		 
 		 actual = port.sayHello("Lv-159.1Java");
-		 expected = "Hello from WebService to Anna!";
+		 expected = "Hello from WebService to Lv-159.1Java!";
 		 assertEquals(expected, actual);
 	}
 }

@@ -17,7 +17,7 @@ public class DiaryServiceConnection {
 		URL wsdlUrl;
 		try {
 			System.out.println("Say something...");
-			wsdlUrl = new URL("http://localhost:8080/Diary/Ws?wsdl");
+			wsdlUrl = new URL("http://localhost:8080/Diary/DiaryService?wsdl");
 			Service service = Service.create(wsdlUrl, qname);
 			DiaryService port = service.getPort(DiaryService.class);
 			System.out.println(port.sayHello("Java-159.1"));
