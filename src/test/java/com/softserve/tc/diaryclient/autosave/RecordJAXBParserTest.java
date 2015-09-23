@@ -1,4 +1,4 @@
-package com.softserve.tc.diaryclient;
+package com.softserve.tc.diaryclient.autosave;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
