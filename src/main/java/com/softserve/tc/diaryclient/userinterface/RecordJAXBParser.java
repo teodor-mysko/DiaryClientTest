@@ -13,7 +13,7 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.log4j.Logger;
 
 import com.softserve.tc.diaryclient.entity.Record;
-import com.softserve.tc.log.Log;
+import com.softserve.tc.diaryclient.log.Log;
 
 /**
  * 

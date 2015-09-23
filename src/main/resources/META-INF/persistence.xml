@@ -6,8 +6,8 @@
 	<persistence-unit name="DiaryClientPersistence" transaction-type="RESOURCE_LOCAL">
 <provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>com.softserve.tc.diaryclient.entity.LoginDuration</class>
-		<class>com.softserve.tc.diaryclient.entity.Session</class>
-		<class>com.softserve.tc.diaryclient.entity.Settings</class>
+		<class>com.softserve.tc.diaryclient.entity.UserSession</class>
+		<class>com.softserve.tc.diaryclient.entity.UserSettings</class>
 		<class>com.softserve.tc.diaryclient.entity.UserStatistic</class>
 		
 		<properties>

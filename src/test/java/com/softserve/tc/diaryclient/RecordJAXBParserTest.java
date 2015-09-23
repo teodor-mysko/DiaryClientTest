@@ -32,9 +32,9 @@ public class RecordJAXBParserTest {
 		record.setCreated_time("2015-05-20 12:00:56");
 		record.setText("#Hello, I'm Thomas #Shelby. I'm from #Birmingham, #England!");
 		record.setSupplement("http:/bigBoss/works/perfectly");
-		
 		UserSession user = new UserSession();
 		user.setNickName("Niikkkooo");
+		System.out.println(user);
 
 		try {
 			JAXBContext context = JAXBContext.newInstance(Record.class);

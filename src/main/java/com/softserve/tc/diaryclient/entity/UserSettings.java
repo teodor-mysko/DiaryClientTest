@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 //@Table(name="settings")
-public class Settings {
+public class UserSettings {
 	
 	@Id
 	private String uuid; 
@@ -40,14 +40,15 @@ public class Settings {
 	@Column(name="language")
 	private Language language;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="time_format")
 	private TimeFormat timeFormat;
 	
-	public Settings() {
+	public UserSettings() {
 		super();
 	}
 	
-	public Settings(String nickName, Theme theme, Integer numberOfRecordsToShow, YesNo showFullName,
+	public UserSettings(String nickName, Theme theme, Integer numberOfRecordsToShow, YesNo showFullName,
 			YesNo showDateOfBirth, Language language, TimeFormat timeFormat) {
 		super();
 		this.uuid = UUID.randomUUID().toString();
@@ -131,7 +132,7 @@ public class Settings {
 	public String toString() {
 		return "Settings [uuid=" + uuid + ", nickName=" + nickName + ", theme=" + theme + ", numberOfRecordsToShow="
 				+ numberOfRecordsToShow + ", showFullName=" + showFullName + ", showDateOfBirth=" + showDateOfBirth
-				+ ", language=" + language + ", timeFormat=" + timeFormat + "]";
+				+ ", language=" + language + ", timeFormat=" + timeFormat + "]\n";
 	}
 
 }

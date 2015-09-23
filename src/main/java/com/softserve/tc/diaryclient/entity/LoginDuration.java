@@ -79,7 +79,7 @@ public class LoginDuration {
 	@Override
 	public String toString() {
 		return "LoginDuration [uuid=" + uuid + ", nickName=" + nickName + ", loginDate=" + loginDate + ", duration="
-				+ duration + "]";
+				+ duration + "]\n";
 	}
 
 }

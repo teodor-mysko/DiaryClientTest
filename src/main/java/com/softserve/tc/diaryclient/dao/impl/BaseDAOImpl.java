@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import com.softserve.tc.diary.dao.BaseDAO;
+import com.softserve.tc.diaryclient.dao.BaseDAO;
 
 public class BaseDAOImpl<T> implements BaseDAO<T> {
 
@@ -27,7 +27,7 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-				JPAUtil.close();
+				//JPAUtil.close();
 
 			}
 		}
@@ -48,7 +48,7 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-				JPAUtil.close();
+				//JPAUtil.close();
 
 			}
 		}
@@ -67,7 +67,7 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-				JPAUtil.close();
+				//JPAUtil.close();
 			}
 		}
 
@@ -83,12 +83,11 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 			entityManager.getTransaction().begin();
 			entityManager.createQuery("delete from "+persistentClass.getSimpleName()+ " where nick_name= '"+nickName + "'").executeUpdate();
 			entityManager.getTransaction().commit();
-			System.out.println("delete from "+persistentClass.getSimpleName()+ " where nick_name= '"+nickName + "'");
 		}
 		finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-				JPAUtil.close();
+				//JPAUtil.close();
 			}
 		}
 
@@ -107,7 +106,7 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 		} finally {
 			if ((entityManager != null) && (entityManager.isOpen())) {
 				entityManager.close();
-				JPAUtil.close();
+				//JPAUtil.close();
 			}
 		}
 		return list;

@@ -97,5 +97,12 @@ public class UserStatistic {
 	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
 	}
+
+	@Override
+	public String toString() {
+		return "UserStatistic [uuid=" + uuid + ", nickName=" + nickName + ", numberOfRecords=" + numberOfRecords
+				+ ", numberOfLogins=" + numberOfLogins + ", lastRecords=" + lastRecords + ", lastLogin=" + lastLogin
+				+ "]\n";
+	}
 	
 }

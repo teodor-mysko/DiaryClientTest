@@ -1,4 +1,4 @@
-package com.softserve.tc.diary.dao;
+package com.softserve.tc.diaryclient.dao;
 
 import java.util.List;
 

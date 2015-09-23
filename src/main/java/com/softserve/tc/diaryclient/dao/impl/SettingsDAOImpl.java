@@ -1,11 +1,11 @@
 package com.softserve.tc.diaryclient.dao.impl;
 
-import com.softserve.tc.diaryclient.entity.Settings;
+import com.softserve.tc.diaryclient.entity.UserSettings;
 
-public class SettingsDAOImpl extends BaseDAOImpl<Settings> {
+public class SettingsDAOImpl extends BaseDAOImpl<UserSettings> {
 
 	public SettingsDAOImpl() {
-		super(Settings.class); // TODO Auto-generated constructor stub
+		super(UserSettings.class); // TODO Auto-generated constructor stub
 	}
 
 }
