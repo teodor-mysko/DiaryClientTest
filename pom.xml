@@ -4,7 +4,7 @@
 	<groupId>com.softserve.diaryclient</groupId>
 	<artifactId>DiaryClient</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1</version>
 	<name>DiaryClient Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
@@ -19,6 +19,12 @@
 			<artifactId>postgresql</artifactId>
 			<version>9.1-901.jdbc4</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.xml.ws</groupId>
+			<artifactId>jaxws-api</artifactId>
+			<version>2.1</version>
+		</dependency>
+
 		<dependency>
 			<groupId>javax.el</groupId>
 			<artifactId>javax.el-api</artifactId>
@@ -54,7 +60,6 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.0.1.Final</version>
 		</dependency>
-
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -66,6 +71,11 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.softserve.tc</groupId>
+			<artifactId>Diary</artifactId>
+			<version>1</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
@@ -73,7 +83,7 @@
 			<name>JBoss repository</name>
 			<url>http://repository.jboss.org/maven2</url>
 		</repository>
-	</repositories>
+</repositories>
 	<build>
 		<finalName>DiaryClient</finalName>
 	</build>
