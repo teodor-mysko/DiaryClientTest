@@ -11,12 +11,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement( name = "RECORD" )
 public class Record {
     
+	UserSession user = new UserSession();
     private String id_rec;
     private String user_name;
 //    private Timestamp created_time;
     private String created_time;
     private String text;
-    private String supplement;
+    private String supplement; 
     
     public Record( ){
     }
@@ -30,13 +31,21 @@ public class Record {
         this.supplement = supplement;
     }
     
-//    public String getId_rec() {
-//        return id_rec;
-//    }
-//    
-//    public void setId_rec(String id_rec) {
-//        this.id_rec = id_rec;
-//    }
+    public String getId_rec() {
+        return id_rec;
+    }
+    
+    public void setId_rec(String id_rec) {
+        this.id_rec = id_rec;
+    }
+    public void setUser_nickName(){
+    	user.setNickName("Nikko");
+    }
+    
+    @XmlElement( name = "USER_NICKNAME", required = true)
+    public String getUser_nickName() {
+        return user.getNickName();
+    }
     
     @XmlElement( name = "USER_NAME", required = true)
     public String getUser_name() {
