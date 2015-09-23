@@ -4,111 +4,61 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.transaction.annotation.Transactional;
 
 import com.softserve.tc.diaryclient.dao.BaseDAO;
 
 public class BaseDAOImpl<T> implements BaseDAO<T> {
-
+	@PersistenceContext(unitName = "primary")
+	EntityManager entityManager;
 	private Class<T> entity;
 
+	public BaseDAOImpl() {
 
+	}
+	
 	public BaseDAOImpl(Class<T> entity) {
 		this.entity = entity;
 	}
 
-	public void create(T object) {
-		EntityManager entityManager=null;
-
-		try {
-			entityManager = JPAUtil.getFactory().createEntityManager();
-			entityManager.getTransaction().begin();
-			entityManager.persist(object);
-			entityManager.getTransaction().commit();
-		} finally {
-			if ((entityManager != null) && (entityManager.isOpen())) {
-				entityManager.close();
-				//JPAUtil.close();
-
-			}
-		}
-
+	public EntityManager getEntityManager() {
+		return entityManager;
 	}
 
-	public T findByNickName(String nickName) {
-		EntityManager entityManager=null;
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+	
+	@Transactional
+	public void create(T object) {
+			entityManager.merge(object);
+	}
 
+	@Transactional
+	public T findByNickName(String nickName) {
 		T element=null;
 		Class<T> persistentClass = (Class<T>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-		System.out.println("from "+persistentClass.getSimpleName()+ " where nick_name= '"+nickName+"'");
-		try {
-			entityManager = JPAUtil.getFactory().createEntityManager();
-			entityManager.getTransaction().begin();
-			element=(T) entityManager.createQuery("from "+persistentClass.getSimpleName()+ " where nick_name= '"+nickName + "'").getSingleResult();
-			entityManager.getTransaction().commit();
-		} finally {
-			if ((entityManager != null) && (entityManager.isOpen())) {
-				entityManager.close();
-				//JPAUtil.close();
-
-			}
-		}
-
+		element=(T) entityManager.createQuery("from "+persistentClass.getSimpleName()+ " where nick_name= '"+nickName + "'").getSingleResult();
 		return element;
 	}
-
+	
+	@Transactional
 	public void update(T object) {
-		EntityManager entityManager=null;
-
-		try {
-			entityManager = JPAUtil.getFactory().createEntityManager();
-			entityManager.getTransaction().begin();
 			entityManager.merge(object);
-			entityManager.getTransaction().commit();
-		} finally {
-			if ((entityManager != null) && (entityManager.isOpen())) {
-				entityManager.close();
-				//JPAUtil.close();
-			}
-		}
 
 	}
 
+	@Transactional
 	public void delete(String nickName) {
-		EntityManager entityManager=null;
-
-		try {
-			Class<T> persistentClass = (Class<T>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-
-			entityManager = JPAUtil.getFactory().createEntityManager();
-			entityManager.getTransaction().begin();
-			entityManager.createQuery("delete from "+persistentClass.getSimpleName()+ " where nick_name= '"+nickName + "'").executeUpdate();
-			entityManager.getTransaction().commit();
-		}
-		finally {
-			if ((entityManager != null) && (entityManager.isOpen())) {
-				entityManager.close();
-				//JPAUtil.close();
-			}
-		}
-
+			entityManager.createQuery("delete from "+entity.getCanonicalName()+ " where nick_name= '"+nickName + "'").executeUpdate();
 	}
-
+	
+	@Transactional
 	public List<T> getAll() {
-		EntityManager entityManager=null;
-
 		List<T> list=null;
-		Class<T> persistentClass = (Class<T>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-		try {
-			entityManager = JPAUtil.getFactory().createEntityManager();
-			entityManager.getTransaction().begin();
-			list=entityManager.createQuery("from "+persistentClass.getCanonicalName()).getResultList();
-			entityManager.getTransaction().commit();
-		} finally {
-			if ((entityManager != null) && (entityManager.isOpen())) {
-				entityManager.close();
-				//JPAUtil.close();
-			}
-		}
+			list=entityManager.createQuery("from "+entity.getCanonicalName()).getResultList();
 		return list;
 	}
 

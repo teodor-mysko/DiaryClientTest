@@ -1,5 +1,7 @@
 package com.softserve.tc.diaryclient.dao;
 
-public interface LoginDurationDAO extends BaseDAO<LoginDurationDAO> {
+import com.softserve.tc.diaryclient.entity.LoginDuration;
+
+public interface LoginDurationDAO extends BaseDAO<LoginDuration> {
 
 }
