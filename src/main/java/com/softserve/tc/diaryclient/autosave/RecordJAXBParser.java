@@ -22,10 +22,10 @@ import com.softserve.tc.diaryclient.log.Log;
  */
 public class RecordJAXBParser implements XMLParser {
 
-	private static final String FILE_LOCATION = "D:\\DiaryClient\\Cherchel.xml";
+	private static final String FILE_LOCATION = "D:\\DiaryClient\\Chicago.xml";
 	private static Logger logger = Log.init(RecordJAXBParser.class.toString());
 
-	public void marshalText(Record record) throws JAXBException {
+	public void marshalText(Record record) {
 
 		try {
 			JAXBContext context = JAXBContext.newInstance(Record.class);
@@ -35,11 +35,14 @@ public class RecordJAXBParser implements XMLParser {
 			marshaller.marshal(record, outStream);
 			logger.info("\nMARSHALING SUCCESS!!!");
 		} catch (FileNotFoundException error) {
-			logger.error("\"D:\\DiaryClient\\Cherchel.xml\" Not Found !!!", error);
+			logger.error("\"D:\\DiaryClient\\Chicago.xml\" Not Found !!!", error);
+		} catch (JAXBException e) {
+			logger.error("JAXBException !!!", e);
 		}
 	}
 
-	public void unMarshalText(Record record) {
+	public String unMarshalText(Record record) {
+		String outputRes = null;
 
 		try {
 			File file = new File(FILE_LOCATION);
@@ -47,18 +50,10 @@ public class RecordJAXBParser implements XMLParser {
 			Unmarshaller unmarshaller = context.createUnmarshaller();
 			Record result = (Record) unmarshaller.unmarshal(file);
 			logger.info("\nUN-MARSHALING SUCCESS!!!" + result);
+			outputRes = result.toString();
 		} catch (JAXBException e) {
 			logger.error("JAXBException !!!", e);
 		}
-	}
-
-	public void marshalText(Object obj) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void unMarshalText(Object obj) {
-		// TODO Auto-generated method stub
-		
+		return outputRes;
 	}
 }
