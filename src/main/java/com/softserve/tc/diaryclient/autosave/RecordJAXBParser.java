@@ -18,42 +18,44 @@ import com.softserve.tc.diaryclient.log.Log;
 /**
  * 
  * @author Mykola-
- *
+ *         
  */
 public class RecordJAXBParser implements XMLParser {
-
-	private static final String FILE_LOCATION = "D:\\DiaryClient\\Chicago.xml";
-	private static Logger logger = Log.init(RecordJAXBParser.class.toString());
-
-	public void marshalText(Record record) {
-
-		try {
-			JAXBContext context = JAXBContext.newInstance(Record.class);
-			Marshaller marshaller = context.createMarshaller();
-			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			OutputStream outStream = new FileOutputStream(FILE_LOCATION);
-			marshaller.marshal(record, outStream);
-			logger.info("\nMARSHALING SUCCESS!!!");
-		} catch (FileNotFoundException error) {
-			logger.error("\"D:\\DiaryClient\\Chicago.xml\" Not Found !!!", error);
-		} catch (JAXBException e) {
-			logger.error("JAXBException !!!", e);
-		}
-	}
-
-	public String unMarshalText(Record record) {
-		String outputRes = null;
-
-		try {
-			File file = new File(FILE_LOCATION);
-			JAXBContext context = JAXBContext.newInstance(Record.class);
-			Unmarshaller unmarshaller = context.createUnmarshaller();
-			Record result = (Record) unmarshaller.unmarshal(file);
-			logger.info("\nUN-MARSHALING SUCCESS!!!" + result);
-			outputRes = result.toString();
-		} catch (JAXBException e) {
-			logger.error("JAXBException !!!", e);
-		}
-		return outputRes;
-	}
+    
+    private static final String FILE_LOCATION = "D:\\DiaryClient\\Chicago.xml";
+    private static Logger logger = Log.init(RecordJAXBParser.class.toString());
+    
+    public String marshalText(Record record) {
+        
+        try {
+            JAXBContext context = JAXBContext.newInstance(Record.class);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            OutputStream outStream = new FileOutputStream(FILE_LOCATION);
+            marshaller.marshal(record, outStream);
+            logger.info("\nMARSHALING SUCCESS!!!");
+        } catch (FileNotFoundException error) {
+            logger.error("\"D:\\DiaryClient\\Chicago.xml\" Not Found !!!",
+                    error);
+        } catch (JAXBException e) {
+            logger.error("JAXBException !!!", e);
+        }
+        
+        return null;
+    }
+    
+    public Record unMarshalText(String record) {
+        
+        try {
+            File file = new File(FILE_LOCATION);
+            JAXBContext context = JAXBContext.newInstance(Record.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            Record result = (Record) unmarshaller.unmarshal(file);
+            logger.info("\nUN-MARSHALING SUCCESS!!!" + result);
+            return result;
+        } catch (JAXBException e) {
+            logger.error("JAXBException !!!", e);
+        }
+        return null;
+    }
 }
