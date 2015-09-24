@@ -22,7 +22,7 @@ import com.softserve.tc.diaryclient.log.Log;
  */
 public class RecordJAXBParser implements XMLParser {
     
-    private static final String FILE_LOCATION = "D:\\DiaryClient\\Chicago.xml";
+    private static final String FILE_LOCATION = "Chicago.xml";
     private static Logger logger = Log.init(RecordJAXBParser.class.toString());
     
     public String marshalText(Record record) {
@@ -35,7 +35,7 @@ public class RecordJAXBParser implements XMLParser {
             marshaller.marshal(record, outStream);
             logger.info("\nMARSHALING SUCCESS!!!");
         } catch (FileNotFoundException error) {
-            logger.error("\"D:\\DiaryClient\\Chicago.xml\" Not Found !!!",
+            logger.error("Chicago.xml Not Found !!!",
                     error);
         } catch (JAXBException e) {
             logger.error("JAXBException !!!", e);

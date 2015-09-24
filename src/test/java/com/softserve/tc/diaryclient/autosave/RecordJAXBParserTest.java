@@ -45,7 +45,7 @@ public class RecordJAXBParserTest {
          */
         try {
             br = new BufferedReader(
-                    new FileReader(new File("D:\\DiaryClient\\Chicago.xml")));
+                    new FileReader(new File("Chicago.xml")));
                     
             while ((line = br.readLine()) != null) {
                 sb.append(line.trim());
