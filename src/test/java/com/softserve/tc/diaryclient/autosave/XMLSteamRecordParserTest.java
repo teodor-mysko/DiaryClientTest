@@ -11,7 +11,7 @@ public class XMLSteamRecordParserTest {
     @Test
     public void testMarshalText() {
         
-        XMLParser parser = new XSteamRecordParser();
+        XMLParser parser = new XStreamRecordParser();
         
         Record record = new Record();
         record.setUser_name("Thomas");

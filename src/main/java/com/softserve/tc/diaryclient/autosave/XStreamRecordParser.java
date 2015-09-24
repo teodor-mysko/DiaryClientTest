@@ -6,10 +6,10 @@ import com.softserve.tc.diaryclient.entity.Record;
 import com.softserve.tc.diaryclient.log.Log;
 import com.thoughtworks.xstream.XStream;
 
-public class XSteamRecordParser implements XMLParser {
+public class XStreamRecordParser implements XMLParser {
     
     private static Logger LOG =
-            Log.init(XSteamRecordParser.class.toString());
+            Log.init(XStreamRecordParser.class.toString());
     XStream xs = new XStream();
     
     public String marshalText(Record record) {
