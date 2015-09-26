@@ -2,35 +2,69 @@ package com.softserve.tc.diaryclient.webservice.diary;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Properties;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
+import javax.xml.ws.WebServiceException;
+
+import org.apache.log4j.Logger;
 
 import com.softserve.tc.diary.webservice.DiaryService;
+import com.softserve.tc.diaryclient.log.Log;
 
 public class DiaryServiceConnection {
 
-	static DiaryService diaryService;
-	public static final String NAME_SPACE_URI = "http://webservice.diary.tc.softserve.com/";
-	public static final String LOCAL_PART = "DiaryServiceImplService";
-	public static final String WSDL = "http://localhost:8080/Diary/DiaryService?wsdl";
-	
+	private static Logger logger = Log.init(DiaryServiceConnection.class.getName());
+
+	static DiaryService port = null;
+
 	private DiaryServiceConnection() {
 	}
 
-	public static DiaryService getDairyServicePort(){
-		
-		QName qname = new QName(NAME_SPACE_URI, LOCAL_PART);
-		
+	public static synchronized DiaryService getDairyServicePort() {
+
+		if (port != null) {
+			return port;
+		}
+
+		String nameSpaceURI = getProperty("webservice.diary.namespace_uri");
+		String localPart = getProperty("webservice.diary.local_part");
+		String WSDL = getProperty("webservice.diary.wsdl");
+
+		QName qname = new QName(nameSpaceURI, localPart);
+
 		try {
 			URL wsdlUrl = new URL(WSDL);
 			Service service = Service.create(wsdlUrl, qname);
-			DiaryService port = service.getPort(DiaryService.class);
-			System.out.println(port.sayHello("Java-159.1"));
+			port = service.getPort(DiaryService.class);
+
+			// TODO using for checking connection. delete method sayHello() after
+			logger.info(port.sayHello("Java-159.1"));
+
+			return port;
+		} catch (WebServiceException w) {
+			w.printStackTrace();
+			logger.error("\nThere is an error during creation of the proxy to Diary web service.\n"
+					+ "OR there is any missing WSDL metadata as required by this method.\n"
+					+ "OR an illegal serviceEndpointInterface is specified.");
 			return port;
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
+			logger.error("Wrong WSDL in getting connection to Diary web service");
 		}
-		return diaryService;
+		return port;
+	}
+
+	public static String getProperty(String propertyName){
+		Properties properties = DiaryServiceProperty.getInstance().properties;
+		String gettedProperty = "";
+		gettedProperty = properties.getProperty(propertyName);		
+		if (gettedProperty == null) {
+			logger.info("Wrong property in webservice.properties: " + propertyName);
+			logger.info("Program closed");
+			System.exit(0);
+		}
+		return gettedProperty;
 	}
 }

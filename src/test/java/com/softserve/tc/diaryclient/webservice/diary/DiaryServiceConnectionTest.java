@@ -1,4 +1,4 @@
-package com.softserve.tc.diaryclient.webservice.diary;
+ package com.softserve.tc.diaryclient.webservice.diary;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
