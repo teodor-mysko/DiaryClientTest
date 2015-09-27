@@ -50,11 +50,11 @@ public class RecordJAXBParserTest {
         
         assertNotNull(res);
         
-        Object object =
-                parser.unmarshalTextFromFile("Chicago.xml", record);
+        Record record1 =
+                parser.unmarshalTextFromFile("Chicago.xml");
                 
-        assertNotNull(object);
+        assertNotNull(record1);
         
-        assertEquals(record.toString(), object.toString());
+        assertEquals(record.toString(), record1.toString());
     }
 }

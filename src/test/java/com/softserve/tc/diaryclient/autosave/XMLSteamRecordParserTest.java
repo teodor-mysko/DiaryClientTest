@@ -44,8 +44,7 @@ public class XMLSteamRecordParserTest {
         
         boolean strResult = parser.marshalTextToFile(record, "Chicago.xml");
         
-        Record record1 = new Record();
-        parser.unmarshalTextFromFile("Chicago.xml", record1);
+        Record record1 = parser.unmarshalTextFromFile("Chicago.xml");
         
         assertNotNull(strResult);
         

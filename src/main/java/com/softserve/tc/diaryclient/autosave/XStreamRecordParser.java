@@ -12,13 +12,6 @@ import com.thoughtworks.xstream.XStreamException;
 
 public class XStreamRecordParser implements XMLParser {
     
-    // public XStreamRecordParser() {
-    // }
-    //
-    // public XStreamRecordParser(String file) {
-    // String fileName = file;
-    // }
-    
     private static Logger LOG =
             Log.init(XStreamRecordParser.class.toString());
     XStream xs = new XStream();
@@ -45,31 +38,29 @@ public class XStreamRecordParser implements XMLParser {
             xs.toXML(record, fos);
             return true;
         } catch (FileNotFoundException error) {
-            LOG.error("Chicago.xml Not Found !!!",
+            LOG.error(String.format("File was not found: %s", file),
                     error);
-            return false;
         } catch (XStreamException e) {
-            LOG.error("XStreamException !!!", e);
-            return false;
+            LOG.error("Exception occured during converting record to XML", e);
         }
+        return false;
     }
     
-    public Record unmarshalTextFromFile(String file, Record record) {
+    public Record unmarshalTextFromFile(String file) {
         
         try {
             LOG.debug(
-                    String.format("Converting XML file to record %s \n", file));
-            FileInputStream file1 = new FileInputStream(file);
-            xs.fromXML(file1, record);
-            return record;
+                    String.format("Converting XML file to record %s", file));
+            FileInputStream fileInputStream = new FileInputStream(file);
+            return (Record) xs.fromXML(fileInputStream);
+            
         } catch (FileNotFoundException error) {
-            LOG.error("Chicago.xml Not Found !!!",
+            LOG.error(String.format("File was not found: %s", file),
                     error);
-            return null;
         } catch (XStreamException e) {
-            LOG.error("XStreamException !!!", e);
-            return null;
+            LOG.error("Exception occured during converting XML file to record",
+                    e);
         }
-        
+        return null;
     }
 }
