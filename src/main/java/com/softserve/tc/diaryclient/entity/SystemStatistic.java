@@ -2,10 +2,14 @@ package com.softserve.tc.diaryclient.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 // @Table(name="system_statistic)
 public class SystemStatistic {
+    
+    @Id
+    private int uuid;
     
     @Column(name = "general_number_of_users_per_month")
     private Integer genNumOfUsersPerMonth;
