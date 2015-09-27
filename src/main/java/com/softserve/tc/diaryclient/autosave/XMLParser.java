@@ -6,5 +6,9 @@ public interface XMLParser {
     
     String marshalText(Record record);
     
-    Record unMarshalText(String record);
+    Record unmarshalText(String record);
+    
+    boolean marshalTextToFile(Record record, String file);
+    
+    Record unmarshalTextFromFile(String file, Record record);
 }

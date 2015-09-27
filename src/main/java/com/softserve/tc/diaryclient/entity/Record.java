@@ -2,23 +2,25 @@ package com.softserve.tc.diaryclient.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
  * @author Mykola-
- *        
+ *         
  */
-@XmlRootElement( name = "RECORD" )
+@XmlRootElement(name = "record")
+@XmlType(propOrder = { "id_rec", "user_name", "created_time", "text",
+        "supplement" })
 public class Record {
     
-//	UserSession user = new UserSession();
     private String id_rec;
     private String user_name;
     private String created_time;
     private String text;
-    private String supplement; 
+    private String supplement;
     
-    public Record( ){
+    public Record() {
     }
     
     public Record(String id_rec, String user_name, String created_time,
@@ -34,49 +36,43 @@ public class Record {
         return id_rec;
     }
     
+    @XmlElement
     public void setId_rec(String id_rec) {
         this.id_rec = id_rec;
     }
-//    public void setUser_nickName(){
-//    	user.setNickName("Nikko");
-//    }
-//    
-//    @XmlElement( name = "USER_NICKNAME", required = true)
-//    public String getUser_nickName() {
-//        return user.getNickName();
-//    }
     
-    @XmlElement( name = "USER_NAME", required = true)
     public String getUser_name() {
         return user_name;
     }
     
+    @XmlElement
     public void setUser_name(String user_name) {
         this.user_name = user_name;
     }
-    @XmlElement( name = "CREATED_TIME" )    
+    
     public String getCreated_time() {
         return created_time;
     }
-
+    
+    @XmlElement
     public void setCreated_time(String created_time) {
         this.created_time = created_time;
     }
     
-    @XmlElement( name = "TEXT", required = true)
     public String getText() {
         return text;
     }
     
+    @XmlElement
     public void setText(String text) {
         this.text = text;
     }
     
-    @XmlElement( name = "SUPPLEMENT_URL" )
     public String getSupplement() {
         return supplement;
     }
     
+    @XmlElement
     public void setSupplement(String supplement) {
         this.supplement = supplement;
     }
