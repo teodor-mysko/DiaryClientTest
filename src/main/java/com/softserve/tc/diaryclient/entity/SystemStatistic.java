@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class SystemStatistic {
     
     @Id
-    private int uuid;
+    private String uuid;
     
     @Column(name = "general_number_of_users_per_month")
     private Integer genNumOfUsersPerMonth;
