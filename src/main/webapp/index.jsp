@@ -6,12 +6,16 @@
 </head>
 <body>
 	<!--<jsp:include page="WEB-INF/views/header.jsp"/>-->
-	<h2>DIARY!</h2>
-	<a href="users">Users</a>
+	<ul>
+		<li><a href="users">Users</a></li>
+		<li><a href="systemStatistic">SystemStatistic</a></li>
+	</ul>
 	<br>
 	<a href="publicRecords">publicRecords</a>
 	<br>
 	<a href="hello">Hello</a>
 	<br>
 	<a href="home">home</a>
+</body>
 </html>
+

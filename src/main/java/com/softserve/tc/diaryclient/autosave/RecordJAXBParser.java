@@ -36,9 +36,8 @@ public class RecordJAXBParser implements XMLParser {
             return str.toString();
         } catch (JAXBException e) {
             logger.error("JAXBException !!!", e);
-            return null;
         }
-        
+        return null;
     }
     
     public Record unmarshalText(String record) {
@@ -52,44 +51,46 @@ public class RecordJAXBParser implements XMLParser {
             return res;
         } catch (JAXBException e) {
             logger.error("JAXBException !!!", e);
-            return null;
         }
+        return null;
     }
     
     public boolean marshalTextToFile(Record record, String file) {
         
         try {
+            logger.debug(
+                    String.format("Converting record to XML file %s ", record));
             JAXBContext context = JAXBContext.newInstance(Record.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             FileOutputStream fos = new FileOutputStream(file);
             marshaller.marshal(record, fos);
-            logger.info("\nMARSHALING SUCCESS!!!" + record);
+            
             return true;
         } catch (FileNotFoundException error) {
-            logger.error("Chicago.xml Not Found !!!",
+            logger.error(String.format("File was not found: %s", file),
                     error);
-            return false;
         } catch (JAXBException e) {
-            logger.error("JAXBException !!!", e);
-            return false;
+            logger.error("Exception occured during converting record to XML",
+                    e);
         }
+        
+        return false;
     }
     
-    public Record unmarshalTextFromFile(String file, Record record) {
+    public Record unmarshalTextFromFile(String file) {
         try {
             
-            JAXBContext context = JAXBContext.newInstance(record.getClass());
+            JAXBContext context = JAXBContext.newInstance(Record.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            
             File file1 = new File(file);
             
-            record = (Record) unmarshaller.unmarshal(file1);
-            logger.info("\nUN-MARSHALING SUCCESS!!!" + record);
-            return record;
+            return (Record) unmarshaller.unmarshal(file1);
         } catch (JAXBException e) {
-            logger.error("JAXBException !!!", e);
-            return null;
+            logger.error(
+                    "Exception occured during converting XML file to record",
+                    e);
         }
+        return null;
     }
 }
