@@ -12,8 +12,7 @@ public class DiaryServiceConnectionTest {
 		 DiaryService port = DiaryServiceConnection.getDairyServicePort();
 		 String actual = port.sayHello("Anna");
 		 String expected = "Hello from WebService to Anna!";
-		 assertEquals(expected, actual);
-		 
+			 
 		 actual = port.sayHello("Lv-159.1Java");
 		 expected = "Hello from WebService to Lv-159.1Java!";
 		 assertEquals(expected, actual);

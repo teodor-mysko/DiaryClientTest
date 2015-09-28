@@ -22,9 +22,10 @@ public class DiaryServiceProperty {
 		
 		properties = new Properties();
 		InputStream inputStream = null;
+		ClassLoader classloader = Thread.currentThread().getContextClassLoader();
 
 		try{
-			inputStream = new FileInputStream("webservice.properties");
+			inputStream = classloader.getResourceAsStream("properties/webservice.properties");
 			properties.load(inputStream);
 		}catch(FileNotFoundException e){
 			logger.error(e.getMessage());
