@@ -18,6 +18,8 @@ public class SystemStatistic {
     private Integer genNumOfRecordsPerMonth;
     
     @Column(name = "the_longest_time_online")
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date theLongestTimeOnline;
     private Integer theLongestTimeOnline;
     
     @Column(name = "the_biggest_record")
