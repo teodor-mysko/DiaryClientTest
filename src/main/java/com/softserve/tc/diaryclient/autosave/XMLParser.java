@@ -10,5 +10,5 @@ public interface XMLParser {
     
     boolean marshalTextToFile(Record record, String file);
     
-    Record unmarshalTextFromFile(String file, Record record);
+    Record unmarshalTextFromFile(String file);
 }
