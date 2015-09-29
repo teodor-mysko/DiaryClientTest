@@ -1,7 +1,7 @@
 
 <header class="">
 <div class="block1">
-<img src="DiaryClient/src/main/resources/images/book.jpg" height="100">
+<img src="http://www.bradleysbookoutlet.com/wp-content/uploads/2013/06/bradleys-book-outlet-books-only-logo.png" height="100" alt="image"/>
 </div>
 <div class="block2">
 DIARY
@@ -13,12 +13,14 @@ DIARY
 <button onclick="location.href='LogIn'">LogIn </button>
 </div>
 </header>
+
   <style type="text/css">
    header {
         background: #3399cc;
         height: 100px;
         margin: 0px;
    }
+   
 
    .block1 {
     width: 30%;

@@ -1,22 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Record discription</title>
-</head>
-<body>
-	<h2>discription</h2>
-	<ul>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-		<li><b>Record created time:   </b>${record.created_time}</li>
-		<li><b>Record title:   </b>${record.title}</li>
-		<li><b>Record text:   </b>${record.text}</li>
-		<li><img src=${record.supplement}></li>
-	</ul>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-	<button onclick="location.href='records'">Back</button>
+<tiles:insertDefinition name="defaultTemplate">
+	<tiles:putAttribute name="body">
+		<div class="body">
+		<h1>Record Discription</h1>
+			<ul type="square">
+				<li>Title: ${record.title}</li>
+				<li>Test: ${record.text}</li>
+				<li>${record.supplement} </li>
+				<li> ${record.created_time} </li>
+			</ul>
+		</div>
+	</tiles:putAttribute>
+</tiles:insertDefinition>
 
-</body>
-</html>

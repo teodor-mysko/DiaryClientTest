@@ -13,8 +13,6 @@
 	<br>
 	<a href="publicRecords">publicRecords</a>
 	<br>
-	<a href="hello">Hello</a>
-	<br>
 	<a href="home">home</a>
 </body>
 </html>
