@@ -30,15 +30,4 @@ public class UserStatisticController {
         model.addAttribute("usersList", json);
         return "users-statistic";
     }
-    
-    @RequestMapping(value = "/usersProfile")
-    public String userProfile(@RequestParam(value = "nickName") String nickName,
-            Model model) {
-        UserStatistic us = userStatDAO.findByNickName(nickName);
-        model.addAttribute("user", us);
-        
-        return "users-profile";
-    }
-    
 }
-
