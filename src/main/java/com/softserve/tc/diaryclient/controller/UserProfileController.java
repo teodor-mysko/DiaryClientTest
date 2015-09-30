@@ -2,40 +2,39 @@ package com.softserve.tc.diaryclient.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.softserve.tc.diaryclient.dao.UserStatisticDAO;
-import com.softserve.tc.diaryclient.entity.UserStatistic;
+import com.softserve.tc.diary.entity.User;
+import com.softserve.tc.diary.webservice.DiaryService;
+import com.softserve.tc.diaryclient.webservice.diary.DiaryServiceConnection;
 
 @Controller
 public class UserProfileController {
-@Autowired
-	UserStatisticDAO userStatDAO;
+	@RequestMapping(value = "/users")
+	public String users(Model model) {
+		 DiaryService port = DiaryServiceConnection.getDairyServicePort();
 
-
-@RequestMapping(value = "/users")
-public String users(Model model) {
-	List<UserStatistic> usersList=userStatDAO.getAll();
-	model.addAttribute("usersList", usersList);
-//	List<Person> persons = service.getAll();
-//	model.addAttribute("persons", persons);
-	return "Users";
-}
-
-
-	@RequestMapping(value = "/userProfile")
-	public String userProfile(@RequestParam(value = "nickName") String nickName, Model model) {
-		UserStatistic us=userStatDAO.findByNickName(nickName);
-		model.addAttribute("user", us);
+		List<User> usersList=port.getAllUsers();
+		model.addAttribute("usersList", usersList);
 //		List<Person> persons = service.getAll();
 //		model.addAttribute("persons", persons);
-		return "user_profile";
+		return "Users";
 	}
+
+
+		@RequestMapping(value = "/userProfile")
+		public String userProfile(@RequestParam(value = "nickName") String nickName, Model model) {
+			 DiaryService port = DiaryServiceConnection.getDairyServicePort();
+
+			User us=port.getUserByNickName(nickName);
+			model.addAttribute("user", us);
+//			List<Person> persons = service.getAll();
+//			model.addAttribute("persons", persons);
+			return "user_profile";
+		}
 	
 	
 
