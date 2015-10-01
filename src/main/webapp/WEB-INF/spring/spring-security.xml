@@ -14,7 +14,7 @@
         <intercept-url pattern="/css/style.css" access="permitAll" />
         <!-- access denied page -->
         <access-denied-handler error-page="/403" />
-        <form-login login-page="/login" default-target-url="/"
+        <form-login login-page="/login" default-target-url="/home"
             authentication-failure-url="/login?error" username-parameter="username"
             password-parameter="password" />
         <logout logout-success-url="/login?logout" />
