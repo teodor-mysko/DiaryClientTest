@@ -9,7 +9,6 @@
 		<div class="name">The Diary</div>
 	</div>
 	<div class="alignright">
-		
 		<!-- <div class="msg">${msg}</div> -->
 		<div class="username">
 			<sec:authorize access="hasRole('ROLE_USER')">
@@ -40,5 +39,4 @@
 		</c:if>
 		</sec:authorize>
 </header>
-<link rel="stylesheet" type="text/css"
-	href="http://diary.cc.ua/css/header.css">
+<link rel="stylesheet" type="text/css" href="http://diary.cc.ua/css/header.css">
