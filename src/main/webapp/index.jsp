@@ -13,6 +13,8 @@
 	<br>
 	<a href="publicRecords">publicRecords</a>
 	<br>
+	<a href="recordsOnCalendar">Records on Calendar</a>
+	<br>
 	<a href="home">home</a>
 </body>
 </html>
