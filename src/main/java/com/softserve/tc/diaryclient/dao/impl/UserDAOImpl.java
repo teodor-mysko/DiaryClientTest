@@ -9,6 +9,6 @@ public class UserDAOImpl {
     public static User findByUserName(String username) {
         DiaryService port = DiaryServiceConnection.getDairyServicePort();
         com.softserve.tc.diary.entity.User user = port.getUserByNickName(username);
-        return new User(user.getNick_name(),user.getPassword(),user.getRole());
+        return new User(user.getNickName(),user.getPassword(),user.getRole());
     }
 }
