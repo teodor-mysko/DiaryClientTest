@@ -1,5 +1,5 @@
 
-<header class="">
+<header>
 <div class="block1">
 <img src="http://www.bradleysbookoutlet.com/wp-content/uploads/2013/06/bradleys-book-outlet-books-only-logo.png" height="100" alt="image"/>
 </div>
@@ -10,7 +10,7 @@ DIARY
 <a href='userProfile?nickName'>Profile
 </div>
 <div  class="block4">
-<button onclick="location.href='LogIn'">LogIn </button>
+<button onclick="location.href='LogOut'">LogOut </button>
 </div>
 </header>
 
