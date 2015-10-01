@@ -11,7 +11,7 @@
 			<c:forEach items="${recordsList}" var="records">
 				<dl>
 					<dt>
-						<a href='recordsDiscription?id_rec=${records.id_rec}'>${records.title}</a>
+						<a href='recordsDiscription?id_rec=${records.uuid}'>${records.title}</a>
 					</dt>
 					<dd>${records.text}</dd>
 				</dl>

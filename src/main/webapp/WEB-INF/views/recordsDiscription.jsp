@@ -12,7 +12,7 @@
 				<li>Title: ${record.title}</li>
 				<li>Test: ${record.text}</li>
 				<li>${record.supplement} </li>
-				<li> ${record.created_time} </li>
+				<li> ${record.createdTime} </li>
 			</ul>
 		</div>
 	</tiles:putAttribute>

@@ -11,7 +11,7 @@
 
 <c:forEach items="${usersList}" var="users">
 	
-		<a href='userProfile?nickName=${users.nick_name}'>${users.nick_name}</a></br>
+		<a href='userProfile?nickName=${users.nickName}'>${users.nickName}</a></br>
 	
 </c:forEach>
 
