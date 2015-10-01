@@ -20,37 +20,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         com.softserve.tc.diaryclient.entity.User user = UserDAOImpl.findByUserName(username);
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        if (user.getUsername().equals("admin")) {
+        if (user.getRole().equals("ADMIN")) {
             authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         }
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
     }
-
-    // buildUserForAuthentication(com.softserve.tc.diaryclient.entity.User user,
-    // List<GrantedAuthority> authorities) {
-    // return new User(user.getUsername(), user.getPassword(), true, true, true,
-    // true, authorities);
-    // }
-    //
-    // private List<GrantedAuthority> buildUserAuthority() {
-    //
-    // Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
-    //
-    // setAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
-    // setAuths.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-    //
-    // List<GrantedAuthority> Result = new
-    // ArrayList<GrantedAuthority>(setAuths);
-    //
-    // return Result;
-    // }
-    //
-    // public UserDAO getUserDAO() {
-    // return userDAO;
-    // }
-    //
-    // public void setUserDAO(UserDAO userDAO) {
-    // this.userDAO = userDAO;
-    // }
 }
