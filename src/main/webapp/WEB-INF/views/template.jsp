@@ -31,7 +31,7 @@
     	font-size: 100%;
     	color: white;
     }
-       .footer {
+       footer {
         clear:both;
         position:absolute;
         bottom:0;

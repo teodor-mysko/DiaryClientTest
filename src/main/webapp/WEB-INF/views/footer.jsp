@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer>
 <div>
 Lv-159.Java
 </div>
