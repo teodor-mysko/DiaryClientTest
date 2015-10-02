@@ -21,9 +21,8 @@
             <input type='text' name='username' placeholder='username' />
             <input type='password' name='password' placeholder="password" />
             <input name='submit' type='submit' value='Log in' /><br>
-            
-            <a href="/register">Register here</a>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            <div class="register">Not registered yet? <a href="/register">Register here</a></div>
         </form>
     </div>
 </body>
