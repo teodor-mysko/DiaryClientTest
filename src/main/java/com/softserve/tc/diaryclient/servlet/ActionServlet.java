@@ -30,14 +30,11 @@ public class ActionServlet extends HttpServlet {
 		System.out.println(userNickName + "!!!!!!!!!!!!!!!!!!!!!NickName");
 		DiaryService port = DiaryServiceConnection.getDairyServicePort();
 		
-		List<Record> recordsList = port.getAllRecordsByDate("bob", "2015-09-30 00:00:00");
-		
+		List<Record> recordsList = port.getAllRecordsByDate(userNickName, "2015-02-23 00:00:00");
+
 		System.out.println(recordsList.toString());
-		String json = new Gson().toJson(recordsList);
-		
-		response.setContentType("application/json");
-	    response.setCharacterEncoding("UTF-8");
-	    response.getWriter().write(json);
+
+	    response.getWriter().write(recordsList.toString());
 		
 	}
 

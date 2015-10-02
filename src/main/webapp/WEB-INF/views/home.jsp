@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
  <tiles:insertDefinition name="defaultTemplate"> 
-	<tiles:putAttribute name="body">
+  <tiles:putAttribute name="body">
 
-		<div class="body">
-		
+    <div class="body">
+    
 <script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
@@ -27,7 +27,6 @@
 
   <script type="text/javascript">
     YUI().use('calendar', 'datatype-date', 'cssbutton', function(Y) {
-
       var calendar = new Y.Calendar({
         contentBox : "#mycalendar",
         width : '340px',
@@ -38,7 +37,6 @@
       ;
       
       var dtdate = Y.DataType.Date;
-
       calendar.on("selectionChange", function(ev) {
         var newDate = ev.newSelection[0];
         Y.one("#selecteddate").setHTML(dtdate.format(newDate));
