@@ -3,9 +3,7 @@
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Default tiles template</title>
-<style type="text/css">
-    <%@include file="../css/style.css" %>
-    </style>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
 </head>
 <body>
     <div class="page">

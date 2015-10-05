@@ -8,18 +8,19 @@
             overflow:hidden;
     }
     .body {
-        margin:30px 30px 10px 250px;
+        margin:10px 10px 10px 250px;
         height:100%;
         overflow:visible;
     }
     
      .menu {
-        padding:50px 10px 0px 10px;
-        width:100px;
-        float:left;
-        font-family:cursive;
-    	font-size: 100%;
-    	color: white;
+        width:150px;
+		float:left;
+        font-size: 110%;
+        position: fixed;
+    	top: 150px;
+    	display: block;
+    	cursor: pointer; 
     }
     
        footer {

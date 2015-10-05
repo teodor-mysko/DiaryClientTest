@@ -16,7 +16,7 @@
     </thead>
     <tbody>
     <c:forEach items="${recordsList}" var="records">
-      <tr><td><a href='recordsDiscription?id_rec=${records.uuid}'>${records.title}</a></td>
+      <tr><td><a href='recordsDescription?id_rec=${records.uuid}'>${records.title}</a></td>
       <td>${records.createdTime}</td>
       <td>${records.text}</td></tr>
 	</c:forEach>
@@ -29,6 +29,7 @@
     $("#pubRecords").dataTable();
   })
   </script>
+  </div>
 </tiles:putAttribute>
 </tiles:insertDefinition>
 

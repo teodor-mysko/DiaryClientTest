@@ -29,13 +29,13 @@ public class PublicRecordController {
 		return "publicRecords";
 	}
 
-	@RequestMapping(value = "/recordsDiscription")
+	@RequestMapping(value = "/recordsDescription")
 	public String recordDescription(@RequestParam(value = "id_rec") String id_rec, ModelMap model) {
 		DiaryService port = DiaryServiceConnection.getDairyServicePort();
 		Record record = port.readByKey(id_rec);
 		System.out.println(record);
 		model.addAttribute("record", record);
-		return "recordsDiscription";
+		return "recordsDescription";
 	}
 
 	@RequestMapping(value = "/hashTag", method = RequestMethod.GET)
