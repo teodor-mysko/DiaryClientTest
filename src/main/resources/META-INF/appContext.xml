@@ -53,5 +53,4 @@
 	<bean id="baseDao" class="com.softserve.tc.diaryclient.dao.impl.BaseDAOImpl">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-
 </beans>
