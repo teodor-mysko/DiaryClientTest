@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.gson.Gson;
+import com.softserve.tc.diary.entity.Tag;
 import com.softserve.tc.diary.entity.User;
 import com.softserve.tc.diary.webservice.*;
 import com.softserve.tc.diaryclient.dao.UserStatisticDAO;
@@ -28,10 +29,18 @@ public class UserStatisticController {
     @RequestMapping(value = "/usersList")
     public String users(Model model) {
         DiaryService port = DiaryServiceConnection.getDairyServicePort();
-        
+    
         List<UserStatistic> usersList = userStatDAO.getAll();
         String json = new Gson().toJson(usersList);
         model.addAttribute("usersList", json);
+        
+        User mostActiveUser = port.getMostActiveUser(); 
+        model.addAttribute("mostActiveUser", mostActiveUser);
+        int numberOfRecords = userStatisticService.getUserAmountOfRecords(mostActiveUser.getNickName());
+        model.addAttribute("usersAmountOfRecords", numberOfRecords);
+        
+        Tag mostPopularTag = port.getMostPopularTag();
+        model.addAttribute("mostPopularTag", mostPopularTag);
         
         return "users-statistic";
     }
