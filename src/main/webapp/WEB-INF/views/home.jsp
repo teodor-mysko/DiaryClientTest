@@ -7,7 +7,7 @@
 		<div class="body">
 
 			<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
-			<script src="http://code.jquery.com/jquery-latest.js"></script>
+			<script src="resources/js/jquery-1.9.1.min.js"></script>
 
 			<div id="demo" class="yui3-skin-sam yui3-g">
 				<div id="leftcolumn" class="yui3-u">
@@ -57,8 +57,6 @@
 			</script>
 			<h2 style="color: blue; text-align: center">Records</h2>
 			<div id="result"></div>
-
 		</div>
-
 	</tiles:putAttribute>
 </tiles:insertDefinition>

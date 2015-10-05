@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-
 import com.softserve.tc.diary.entity.Record;
 import com.softserve.tc.diary.webservice.DiaryService;
 import com.softserve.tc.diaryclient.webservice.diary.DiaryServiceConnection;
