@@ -4,13 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>403 Error- Access is denied</title>
+<title>404 Error- Page not found</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link
 	href='http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister'
 	rel='stylesheet' type='text/css'>
-<link href='resources/css/error.css' rel='stylesheet'
-	type='text/css'>
+<link href='resources/css/error.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<script async type='text/javascript'
@@ -18,15 +17,8 @@
 		id='_fancybar_js'></script>
 	<div class="wrap">
 		<div class="logo">
-			<c:choose>
-				<c:when test="${empty username}">
-					<p>OOPS! - Access denied</p>
-				</c:when>
-				<c:otherwise>
-					<p>OOPS! - Hey, ${username}! Access denied</p>
-				</c:otherwise>
-			</c:choose>
-			<div class="errortext">403</div>
+			<p>OOPS! - Page not found</p>
+			<div class="errortext">404</div>
 			<div class="sub">
 				<p>
 					<a href="javascript:window.history.back()">Back </a>

@@ -4,7 +4,7 @@
 	<div class="alignleft">
 		<div class="logo">
 			<a href='/DiaryClient/'><img
-				src="http://diary.cc.ua/images/logo.png" height="100" alt="image" /></a>
+				src="resources/images/logo.png" height="100" alt="image" /></a>
 		</div>
 		<div class="name">The Diary</div>
 	</div>
@@ -39,4 +39,4 @@
 		</c:if>
 		</sec:authorize>
 </header>
-<link rel="stylesheet" type="text/css" href="http://diary.cc.ua/css/header.css">
+<link rel="stylesheet" type="text/css" href="resources/css/header.css">

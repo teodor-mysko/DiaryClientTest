@@ -7,18 +7,20 @@
     http://www.springframework.org/schema/security/spring-security-3.2.xsd
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+    <http pattern="/css/**" security="none" />
 
     <!-- enable use-expressions -->
     <http auto-config="true" use-expressions="true">
         <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/home**" access="hasRole('ROLE_USER')" />
-        <intercept-url pattern="/css/style.css" access="permitAll" />
         <!-- access denied page -->
         <access-denied-handler error-page="/403" />
         <form-login login-page="/login" default-target-url="/home"
             authentication-failure-url="/login?error" username-parameter="username"
             password-parameter="password" />
         <logout logout-success-url="/" />
+        <remember-me key="remember"/>
         <!-- enable csrf protection -->
         <csrf />
     </http>
@@ -28,5 +30,6 @@
             <password-encoder hash="md5" />
         </authentication-provider>
     </authentication-manager>
-    <beans:bean name="CustomUserDetailsService" class="com.softserve.tc.diaryclient.service.CustomUserDetailsService" />
+    <beans:bean name="CustomUserDetailsService"
+        class="com.softserve.tc.diaryclient.service.CustomUserDetailsService" />
 </beans:beans>

@@ -19,7 +19,7 @@
          Choose visibility for record:
         <input id="status" type="radio" name="status" value="PRIVATE" checked>Private</input>
         <input id="status" type="radio" name="status" value="PUBLIC">Public</input>
-        <input type="hidden" name="user_id" value="${pageContext.request.userPrincipal.name}"/>
+        <input type="hidden" name="nick" value="${pageContext.request.userPrincipal.name}"/>
         </div>
           <div>
           Message:
