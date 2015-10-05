@@ -11,6 +11,8 @@
 	<ul>
 		<li><a href="users">Users</a></li>
 		<li><a href="systemStatistic">SystemStatistic</a></li>
+		<li><a href="usersList">Users Statistic</a></li>
+		<li><a href="mystatistic?nickName=${pageContext.request.userPrincipal.name}" >My Statistic</a></li>
 	</ul>
 	<br>
 	<a href="publicRecords">publicRecords</a>
