@@ -11,7 +11,6 @@
 			<ul>
 				<li><b>Nick Name: </b>${user.nickName}</li>
 				<li><b>Full name: </b>${user.firstName} ${user.secondName}</li>
-				<li><b>Password: </b>${user.password}</li>
 				<li><b>Number Of records: </b>${numberOfRecords}</li>
 				<li><b>Number Of logins: </b>${userStatistic.numberOfLogins}</li>
 				<li><b>Last records: </b>${userStatistic.lastRecords}</li>

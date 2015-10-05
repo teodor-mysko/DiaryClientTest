@@ -16,11 +16,7 @@
 <script type="text/javascript">
 	google.setOnLoadCallback(drawChart);
 	function getDataForLogins() {
-		var json = $
-		{
-			usersList
-		}
-		;
+		var json = ${usersList};
 		for (var i = 0; i < json.length; i++) {
 			delete json[i].uuid;
 			delete json[i].numberOfRecords;
@@ -43,11 +39,7 @@
 		return jsonData;
 	}
 	function getDataForRecords() {
-		var json = $
-		{
-			usersList
-		}
-		;
+		var json = ${usersList};
 		for (var i = 0; i < json.length; i++) {
 			delete json[i].uuid;
 			delete json[i].numberOfLogins;
@@ -69,6 +61,19 @@
 		var jsonData = [ header ].concat(rows);
 		return jsonData;
 	}
+	
+	function getDataForSexes() {
+		var male = ${male};
+		var female = ${female};
+		var header = ['Sexes','Percentage'];
+		
+		var rows = [['Male',male],['Female',female]];
+		
+		var data = [ header ].concat(rows);
+		return data;
+	}
+
+	
 	google.load("visualization", "1", {
 		packages : [ "corechart" ],
 		callback : drawChart
@@ -95,13 +100,27 @@
 			width : 700,
 			colors : [ 'red' ]
 		};
+		
+		var dataForSexes = getDataForSexes();
+		var dataForSexes = google.visualization
+				.arrayToDataTable(dataForSexes);
+		var optionsForSexes = {
+			title : 'Statistic by Sex',
+			height : 500,
+			width : 700,
+			is3D:true,
+		};
 
 		var chartForLogins = new google.visualization.ColumnChart(document
 				.getElementById('chartForLogins'));
 		chartForLogins.draw(dataForLogins, optionsForLogins);
-		var chartForRecords = new google.visualization.ColumnChart(document
+		var chartForRecords = new google.visualization.LineChart(document
 				.getElementById('chartForRecords'));
 		chartForRecords.draw(dataForRecords, optionsForRecords);
+		
+		var chartForSexes = new google.visualization.PieChart(document
+				.getElementById('chartForSexes'));
+		chartForSexes.draw(dataForSexes, optionsForSexes);
 
 	}
 </script>
@@ -126,9 +145,10 @@
 					<div>The most active user: ${mostActiveUser.nickName}
 						-${mostActiveUser.firstName} ${mostActiveUser.secondName} with
 						${usersAmountOfRecords} records.</div>
-					<div>The most popular tag(one by record) : ${mostPopularTag.tag}</div>
+					<div>The most popular tag(one by record) : ${mostPopularTag.getTagMessage()}</div>
 					<div id="chartForLogins"></div>
 					<div id="chartForRecords"></div>
+					<div id="chartForSexes"></div>
 				</div>
 			</div>
 		</div>

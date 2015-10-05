@@ -15,6 +15,7 @@ import com.softserve.tc.diary.entity.User;
 import com.softserve.tc.diary.webservice.*;
 import com.softserve.tc.diaryclient.dao.UserStatisticDAO;
 import com.softserve.tc.diaryclient.entity.Record;
+import com.softserve.tc.diaryclient.entity.SystemStatistic;
 import com.softserve.tc.diaryclient.entity.UserStatistic;
 import com.softserve.tc.diaryclient.service.UserStatisticService;
 import com.softserve.tc.diaryclient.webservice.diary.DiaryServiceConnection;
@@ -42,16 +43,21 @@ public class UserStatisticController {
         Tag mostPopularTag = port.getMostPopularTag();
         model.addAttribute("mostPopularTag", mostPopularTag);
         
+        int[] sexStatistic = port.getSexStatistic();
+        int male = sexStatistic[0];
+        model.addAttribute("male", male);
+        int female = sexStatistic[1];
+        model.addAttribute("female", female);
+        
         return "users-statistic";
     }
     
     @RequestMapping(value = "/mystatistic", method = RequestMethod.GET)
     public String myStatistic(@RequestParam(value = "nickName",required=false) String nickName,Model model) {
         DiaryService port = DiaryServiceConnection.getDairyServicePort();
-        if (nickName ==""){
-            nickName="BigBunny";
+        if (nickName.equals(null)){
+            return "redirect:/login";
         }
-        nickName = "BigBunny";
         User us = port.getUserByNickName(nickName);
         model.addAttribute("user", us);
         UserStatistic clientUserStat = userStatDAO.findByNickName("Bob");
