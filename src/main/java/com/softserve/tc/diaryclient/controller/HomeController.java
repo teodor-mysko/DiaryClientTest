@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+
 import com.softserve.tc.diary.entity.Record;
 import com.softserve.tc.diary.webservice.DiaryService;
 import com.softserve.tc.diaryclient.webservice.diary.DiaryServiceConnection;
@@ -27,10 +28,6 @@ public class HomeController {
 
 	@RequestMapping(value = "/getRecordsByDay", method = RequestMethod.GET)
 	public @ResponseBody String getRecordsByDay(@RequestParam("selected") String date, HttpServletRequest request) {
-
-		if (request.getUserPrincipal() == null) {
-			return new Gson().toJson("User is not logged!");
-		}
 
 		String userNickName = request.getUserPrincipal().getName();
 		DiaryService port = DiaryServiceConnection.getDairyServicePort();
