@@ -14,19 +14,15 @@ import com.softserve.tc.diaryclient.webservice.diary.DiaryServiceConnection;
 public class AddRecordConteroller {
 
 	@RequestMapping(value = "/addRecord", method = RequestMethod.POST)
-	public String addRec(@RequestParam("title") String title, @RequestParam("text") String text,
+	public String addRecordPost(@RequestParam("title") String title, @RequestParam("text") String text,
 			@RequestParam("status") String status, @RequestParam("nick") String nick) {
-		System.out.println(title);
-		System.out.println(text);
-		System.out.println(status);
-		System.out.println(nick);
 		DiaryService port = DiaryServiceConnection.getDairyServicePort();
 		boolean result = port.addRecord(nick, title, text, status);
 		return "redirect:/publicRecords";
 	}
 	
 	@RequestMapping(value = "/addRecord", method = RequestMethod.GET)
-	public String addRec1() {
+	public String addRecordGet() {
 		
 		return "addRecord";
 	}
