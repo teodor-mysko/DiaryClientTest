@@ -27,7 +27,7 @@ public class UserStatisticController {
     @Autowired
     UserStatisticService userStatisticService ;
     
-    @RequestMapping(value = "/usersList")
+    @RequestMapping(value = "/users-statistic")
     public String users(Model model) {
         DiaryService port = DiaryServiceConnection.getDairyServicePort();
     
@@ -52,10 +52,10 @@ public class UserStatisticController {
         return "users-statistic";
     }
     
-    @RequestMapping(value = "/mystatistic", method = RequestMethod.GET)
+    @RequestMapping(value = "/my-statistic", method = RequestMethod.GET)
     public String myStatistic(@RequestParam(value = "nickName",required=false) String nickName,Model model) {
         DiaryService port = DiaryServiceConnection.getDairyServicePort();
-        if (nickName.equals(null)){
+        if (nickName.isEmpty()){
             return "redirect:/login";
         }
         User us = port.getUserByNickName(nickName);
@@ -69,7 +69,7 @@ public class UserStatisticController {
         /*List<com.softserve.tc.diary.entity.Record> records= port.getAllRecordsByDate(nickName,"2015-09-03 00:00:00");
         model.addAttribute("recordsByDate", records);*/
         
-        return "mystatistic";
+        return "my-statistic";
     }
     
 }

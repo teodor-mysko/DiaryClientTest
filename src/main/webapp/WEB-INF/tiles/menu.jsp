@@ -8,13 +8,13 @@
 				
 			<li><a href="users_profile">My Profile</a></li>
 					
-			<li><a href="publicRecords">public records</a></li>
+			<li><a href="addRecord?nickName='${pageContext.request.userPrincipal.name}'">Add record</a></li>
+			
+			<li><a href="my-statistic?nickName=${pageContext.request.userPrincipal.name}">My Statistic</a></li>
 					
-			<li><a href="addRecord?nickName='${pageContext.request.userPrincipal.name}'">add record</a></li>
-					
-			<li><a href="settings">settings</a></li>
-					
-			<li><a href="users-statistic">Statistic</a></li>
+			<li><a href="settings">Settings</a></li>
+			
+			<li><a href="publicRecords">Public records</a></li>
 				
 		</ul>
 	</c:if>

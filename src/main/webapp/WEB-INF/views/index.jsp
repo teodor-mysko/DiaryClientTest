@@ -7,18 +7,19 @@
 <title>Diary</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/tiles/header.jsp"/>
+	<jsp:include page="/WEB-INF/tiles/header.jsp" />
 	<ul>
 		<li><a href="users">Users</a></li>
 		<li><a href="systemStatistic">SystemStatistic</a></li>
-		<li><a href="usersList">Users Statistic</a></li>
-		<li><a href="mystatistic?nickName=${pageContext.request.userPrincipal.name}" >My Statistic</a></li>
+		<li><a href="users-statistic">Users Statistic</a></li>
+		<li><a href="home">Home</a></li>
+		<li><a href="addRecord">Add record</a></li>
+		<li><a href="publicRecords">Public Records</a></li>
 	</ul>
 	<br>
-	<a href="publicRecords">publicRecords</a>
+
 	<br>
-	<a href="home">home</a>
-	<a href="addRecord">addRecord</a>
+
 </body>
 </html>
 
