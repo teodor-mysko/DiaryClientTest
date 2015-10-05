@@ -9,7 +9,7 @@
 <link
 	href='http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister'
 	rel='stylesheet' type='text/css'>
-<link href='http://diary.cc.ua/css/error.css' rel='stylesheet'
+<link href='resources/css/error.css' rel='stylesheet'
 	type='text/css'>
 </head>
 <body>
