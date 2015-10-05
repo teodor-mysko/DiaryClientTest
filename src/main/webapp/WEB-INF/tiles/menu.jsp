@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page session="true"%>
-<div>
+<div class="menu">
 	<c:if test="${pageContext.request.userPrincipal.name != null}">
 	Menu
 	<ul>

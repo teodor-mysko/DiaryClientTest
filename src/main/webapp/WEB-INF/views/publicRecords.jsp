@@ -29,6 +29,7 @@
     $("#pubRecords").dataTable();
   })
   </script>
+  </div>
 </tiles:putAttribute>
 </tiles:insertDefinition>
 
