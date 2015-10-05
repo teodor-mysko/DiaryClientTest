@@ -7,7 +7,7 @@
 <title>Diary</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="/WEB-INF/tiles/header.jsp"/>
 	<ul>
 		<li><a href="users">Users</a></li>
 		<li><a href="systemStatistic">SystemStatistic</a></li>
@@ -16,6 +16,7 @@
 	<a href="publicRecords">publicRecords</a>
 	<br>
 	<a href="home">home</a>
+	<a href="addRecord">addRecord</a>
 </body>
 </html>
 
