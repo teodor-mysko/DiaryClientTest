@@ -63,7 +63,11 @@
 		<servlet-name>ActionServlet</servlet-name>
 		<url-pattern>/ActionServlet/*</url-pattern>
 	</servlet-mapping>
-
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/views/404.jsp</location>
+	</error-page>
 
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/views/index.jsp</welcome-file>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>The Diary - Login</title>
-<link href="<c:url value="http://diary.cc.ua/css/login.css" />" rel="stylesheet">
+<link href="resources/css/login.css" rel="stylesheet">
 </head>
 <body onload='document.loginForm.username.focus();'>
     <div id="login">
@@ -16,13 +16,14 @@
         <div class="msg">${msg}</div>
     </c:if>
     
-        <h1>${title}</h1>
+        <h1><a href="/DiaryClient/">${title}</a></h1>
         <form name='loginForm' action="<c:url value='/j_spring_security_check' />" method='POST'>
             <input type='text' name='username' placeholder='username' />
             <input type='password' name='password' placeholder="password" />
             <input name='submit' type='submit' value='Log in' /><br>
+            <label><input type="checkbox" name="remember" checked class="checkbox"/> Remember me</label>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-            <div class="register">Not registered yet? <a href="/register">Register here</a></div>
+            <div class="register">Not registered yet? <a href="/DiaryClient/register">Register here</a></div>
         </form>
     </div>
 </body>
