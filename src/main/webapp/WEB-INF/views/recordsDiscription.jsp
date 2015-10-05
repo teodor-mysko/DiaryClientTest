@@ -6,13 +6,14 @@
 
 <tiles:insertDefinition name="defaultTemplate">
 	<tiles:putAttribute name="body">
-		<div class="body">
-		<h1>Record Discription</h1>
+		<div class="body" scroll="yes">
+		<h1>Record Description</h1>
 			<ul type="square">
 				<li>Title: ${record.title}</li>
-				<li>Test: ${record.text}</li>
 				<li>${record.supplement} </li>
-				<li> ${record.createdTime} </li>
+				<li>Created: ${record.createdTime} </li>
+				<li><button onclick="location.href='publicRecords'">Back</button> </li>
+				<li>Test: ${record.text}</li>
 			</ul>
 		</div>
 	</tiles:putAttribute>

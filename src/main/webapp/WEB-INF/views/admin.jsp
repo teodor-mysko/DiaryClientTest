@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>The Diary - Admin page</title>
-<link href="<c:url value="http://diary.cc.ua/css/login.css" />" rel="stylesheet">
+ <link href="<c:url value="http://diary.cc.ua/css/login.css" />" rel="stylesheet">
+
 </head>
 <body>
     <div id="login">
