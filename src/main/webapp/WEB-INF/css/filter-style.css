@@ -1,0 +1,9 @@
+  #filter {
+             margin:0px 0px 10px 250px;
+             height: 30px;
+             background: #BFC3CC;
+             border:1px;
+        }
+        #sorting {
+    display: none;
+}

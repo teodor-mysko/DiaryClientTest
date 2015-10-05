@@ -4,22 +4,48 @@
 
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<tiles:insertDefinition name="defaultTemplate">
+<tiles:insertDefinition name="filter">
 	<tiles:putAttribute name="body">
+	<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css"> 
 		<div class="body">
-		<h1>Public Records: </h1>
+		
+		
+<table id="pubRecords" >
+    <thead>
+      <tr><th width=20%>Title</th><th width=20%>Created Time</th><th width=60%>Text</th></tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${recordsList}" var="records">
+      <tr><td><a href='recordsDiscription?id_rec=${records.uuid}'>${records.title}</a></td>
+      <td>${records.createdTime}</td>
+      <td>${records.text}</td></tr>
+	</c:forEach>
+    </tbody>
+  </table>
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+  <script>
+  $(function(){
+    $("#pubRecords").dataTable();
+  })
+  </script>
+</tiles:putAttribute>
+</tiles:insertDefinition>
+
+
+<!--  	<h1>Public Records:</h1>
 			<c:forEach items="${recordsList}" var="records">
 				<dl>
 					<dt>
 						<a href='recordsDiscription?id_rec=${records.uuid}'>${records.title}</a>
 					</dt>
-					<dd>${records.text}</dd>
+					<dd>
+						<form name="result">
+						  <input size=150 TYPE="text" NAME="message" value="${records.text}">	
+							</input>
+						</form>
+					</dd>
 				</dl>
 			</c:forEach>
-		</div>
-
-
-
-	</tiles:putAttribute>
-</tiles:insertDefinition>
+		</div>-->
 
