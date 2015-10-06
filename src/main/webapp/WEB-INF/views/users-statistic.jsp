@@ -5,11 +5,12 @@
 <tiles:insertDefinition name="defaultTemplate">
 	<tiles:putAttribute name="body">
 		<div class="body">
-			<div>The most active user: ${mostActiveUser.nickName}
+			<div class="text"><p>The most active user: ${mostActiveUser.nickName}
 				-${mostActiveUser.firstName} ${mostActiveUser.secondName} with
-				${usersAmountOfRecords} records.</div>
-			<div>The most popular tag(one by record) :
-				${mostPopularTag.getTagMessage()}</div>
+				${usersAmountOfRecords} records.</p><br>
+			<p>The most popular tag(one by record) :
+				${mostPopularTag.getTagMessage()}</p>
+			</div>
 			<div id="chartForLogins"></div>
 			<div id="chartForRecords"></div>
 			<div id="chartForSexes"></div>
@@ -18,7 +19,22 @@
 		
 	</tiles:putAttribute>
 </tiles:insertDefinition>
-<script
+<style type="text/css">
+	#chartForLogins{
+	float:left;
+	}
+	#chartForRecords{
+	float:left;
+	}
+	#chartForSexes{
+	float:left;
+	}
+	.text{
+	font-size:20px;
+	float:left;
+	}
+</style>
+<script type ="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript"
 	src="http://underscorejs.org/underscore-min.js"></script>
@@ -38,6 +54,7 @@ function getDataForLogins() {
 	for ( var key in json[0]) {
 		header.push(key);
 	}
+	header = ['User','Logins'];
 	//console.log(header);
 
 	var rows = [];
@@ -63,6 +80,8 @@ function getDataForRecords() {
 	}
 	//console.log(header);
 
+	header = ['User','Records'];
+	
 	var rows = [];
 	for (var i = 0; i < json.length; i++) {
 		rows.push([ json[i].nickName, json[i].numberOfRecords ]);
@@ -96,8 +115,8 @@ function drawChart() {
 	var optionsForLogins = {
 		isStacked : false,
 		title : 'Statistic by number of Logins',
-		height : 500,
-		width : 700,
+		height : 300,
+		width : 500,
 		colors : [ 'blue' ]
 	};
 	var dataForRecords = getDataForRecords();
@@ -106,8 +125,8 @@ function drawChart() {
 	var optionsForRecords = {
 		isStacked : false,
 		title : 'Statistic by number of Records',
-		height : 500,
-		width : 700,
+		height : 300,
+		width : 500,
 		colors : [ 'red' ]
 	};
 	
@@ -116,8 +135,8 @@ function drawChart() {
 			.arrayToDataTable(dataForSexes);
 	var optionsForSexes = {
 		title : 'Statistic by Sex',
-		height : 500,
-		width : 700,
+		height : 400,
+		width : 400,
 		is3D:true,
 	};
 
@@ -131,6 +150,5 @@ function drawChart() {
 	var chartForSexes = new google.visualization.PieChart(document
 			.getElementById('chartForSexes'));
 	chartForSexes.draw(dataForSexes, optionsForSexes);
-
 }
 </script>
