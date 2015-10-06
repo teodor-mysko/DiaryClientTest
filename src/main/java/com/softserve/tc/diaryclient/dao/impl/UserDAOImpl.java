@@ -11,4 +11,9 @@ public class UserDAOImpl {
         com.softserve.tc.diary.entity.User user = port.getUserByNickName(username);
         return new User(user.getNickName(),user.getPassword(),user.getRole());
     }
+    
+    public static void create(final com.softserve.tc.diary.entity.User user) {
+        DiaryService port = DiaryServiceConnection.getDairyServicePort();
+        port.createUser(user);
+    }
 }

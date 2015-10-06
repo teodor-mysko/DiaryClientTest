@@ -5,6 +5,8 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +15,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+
 import com.softserve.tc.diary.entity.Record;
+import com.softserve.tc.diary.log.Log;
 import com.softserve.tc.diary.webservice.DiaryService;
 import com.softserve.tc.diaryclient.webservice.diary.DiaryServiceConnection;
 
 @Controller
 public class HomeController {
+
+	private Logger logger = Log.init(this.getClass().getName());
+	
+	public final String START_OF_DAY = " 00:00:00";
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -30,12 +38,12 @@ public class HomeController {
 
 		String userNickName = request.getUserPrincipal().getName();
 		DiaryService port = DiaryServiceConnection.getDairyServicePort();
-		List<Record> recordsList = port.getAllRecordsByDate(userNickName, date + " 00:00:00");
 
-		if (recordsList.size() == 0) {
-			return new Gson().toJson("< no notes >");
-		}
+		logger.info(userNickName + " gets records per " + date);
+		
+		List<Record> recordsList = port.getAllRecordsByDate(userNickName, date + START_OF_DAY);
 
-		return new Gson().toJson(recordsList.toString());
+		return new Gson().toJson(recordsList);
+
 	}
 }
