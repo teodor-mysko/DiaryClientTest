@@ -12,9 +12,7 @@
         </center>
 	</form>
 	    </div > 
-	    <style type="text/css">
-    <%@include file="../css/filter-style.css" %>
-    </style>
+<link rel="stylesheet" type="text/css" href="resources/css/filter-style.css">
 	    
    <!--  <center>
      <div id="sorting">

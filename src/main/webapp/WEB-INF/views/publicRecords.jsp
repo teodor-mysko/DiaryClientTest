@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <tiles:insertDefinition name="filter">
@@ -16,7 +15,7 @@
     </thead>
     <tbody>
     <c:forEach items="${recordsList}" var="records">
-      <tr><td><a href='recordsDiscription?id_rec=${records.uuid}'>${records.title}</a></td>
+      <tr><td><a href='recordsDescription?id_rec=${records.uuid}'>${records.title}</a></td>
       <td>${records.createdTime}</td>
       <td>${records.text}</td></tr>
 	</c:forEach>
@@ -29,6 +28,7 @@
     $("#pubRecords").dataTable();
   })
   </script>
+  </div>
 </tiles:putAttribute>
 </tiles:insertDefinition>
 
