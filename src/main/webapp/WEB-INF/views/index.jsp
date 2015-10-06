@@ -58,7 +58,6 @@ a:active {
 		<li><a href="systemStatistic">SystemStatistic</a></li>
 		<li><a href="users-statistic">Users Statistic</a></li>
 		<li><a href="home">Home</a></li>
-		<li><a href="addRecord">Add record</a></li>
 		<li><a href="publicRecords">Public Records</a></li>
 	</ul>
 	</div>
